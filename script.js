@@ -5,15 +5,15 @@ h1.setAttribute("id", "title");
 h1.innerHTML = "Rest Countries";
 const div = document.getElementById("div");
 div.appendChild(h1);
-  fetch("https://restcountries.com/v3.1/all")
-    .then((data) => data.json())
-    .then((countries) => {
-      console.log(countries);
-  
-      countries.forEach((country) => {
-        const division = document.createElement("div");
-        division.setAttribute("class", "row");
-        division.innerHTML = `<div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
+fetch("https://restcountries.com/v3.1/all")
+  .then((data) => data.json())
+  .then((countries) => {
+    console.log(countries);
+
+    countries.forEach((country) => {
+      const division = document.createElement("div");
+      division.setAttribute("class", "row");
+      division.innerHTML = `<div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
                                       <div class="card h-100">
                                           <div class="card-header">${country.name.common}</div>
                                           <img src="${country.flags?.png}" class="card-img-top">
@@ -31,19 +31,21 @@ div.appendChild(h1);
                                       </div>
                                   </div>
                                   <br />`;
-        div.appendChild(division);
-      });
-    })
-    .catch((error) => console.log(error));
+      div.appendChild(division);
+    });
+  })
+  .catch((error) => console.log(error));
 
-    // Function to fetch weather data from OpenWeatherMap
-    function fetchWeather(lat, lon) {
-      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${"15bcb194fddb6bad258e49becff0a29a"}&units=metric`)
-        .then((response) => response.json())
-        .then((weatherData) => {
-          alert(`Current temperature: ${weatherData.main.temp}°C`);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
+// Function to fetch weather data from OpenWeatherMap
+function fetchWeather(lat, lon) {
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${"15bcb194fddb6bad258e49becff0a29a"}&units=metric`
+  )
+    .then((response) => response.json())
+    .then((weatherData) => {
+      alert(`Current temperature: ${weatherData.main.temp}°C`);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
