@@ -1,0 +1,133 @@
+//*Syntax : let/const variablename = new Promise((resolve,reject)=>{})
+
+/*const a = parseInt(prompt("Enter a number"))
+const promise1 = new Promise((resolve, reject) => {
+  if (a % 2 === 0) {
+    resolve("Even Number");
+  } else {
+    reject("Odd Number");
+  }
+});
+//console.log(promise1);
+promise1.then((data) => console.log(data)).catch((error) => console.log(error));
+*/
+//!Session Task Voting
+/*
+const b = parseInt(prompt("Enter your age"))
+const promise1 = new Promise((resolve, reject) => {
+  if (b>=18) {
+    resolve("Eligible to vote");
+  } else {
+    reject("Not eligible to vote");
+  }
+});
+//console.log(promise1);
+promise1.then((data) => console.log(data)).catch((error) => console.log(error));
+*/
+//!Promise in functions
+/*
+function foo(num) {
+  return new Promise((resolve, reject) => {
+    resolve("This is resolve "+num);
+    reject("This is reject "+num);
+  });
+}
+foo(15)
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
+*/
+
+//!promise chain
+/*
+function mul(num) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(num * 2), 2000);
+  });
+}
+mul(5)
+  .then((data) => {
+    console.log(data); //10
+    return mul(data); //mul(10)
+  })
+  .then((ele) => {
+    console.log(ele); //20
+    return mul(ele);
+  })
+  .then((ele1) => console.log(ele1))
+  .catch((error) => console.log(error));
+*/
+//!Session Task Addition - Promise Chain
+/*
+function add(num){
+    return new Promise((resolve,reject) =>{
+        setTimeout(()=>resolve(num+2),3000);
+    })
+}
+add(0).then((ele1)=>{
+    console.log(ele1);
+    return add(ele1);
+}).then((ele2)=>{
+    console.log(ele2);
+    return add(ele2);
+}).then((ele3)=>{
+    console.log(ele3);
+    return add(ele3);
+}).then((ele4)=>{
+    console.log(ele4);
+    return add(ele4);
+}).then((ele5)=>console.log(ele5)).catch((error)=>console.log(error))
+*/
+//!promise.all()
+/*
+const promise1 = new Promise((resolve, reject) => {
+  if (true) {
+    setTimeout(() => resolve("Promise1 is resolved"), 2000);
+  } else {
+    setTimeout(() => reject("Promise1 is resolved"), 4000);
+  }
+});
+const promise2 = new Promise((resolve, reject) => {
+  if (false) {
+    setTimeout(() => resolve("Promise2 is resolved"), 2000);
+  } else {
+    setTimeout(() => reject("Promise2 is resolved"), 4000);
+  }
+});
+const promise3 = new Promise((resolve, reject) => {
+  if (true) {
+    setTimeout(() => resolve("Promise3 is resolved"), 2000);
+  } else {
+    setTimeout(() => reject("Promise3 is resolved"), 4000);
+  }                
+});
+Promise.all([promise1, promise2, promise3])
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error));
+*/
+//!Promise.allSettled
+/*
+const promise1 = new Promise((resolve, reject) => {
+  if (true) {
+    setTimeout(() => resolve("Promise1 is resolved"), 2000);
+  } else {
+    setTimeout(() => reject("Promise1 is resolved"), 4000);
+  }
+});
+const promise2 = new Promise((resolve, reject) => {
+  if (false) {
+    setTimeout(() => resolve("Promise2 is resolved"), 2000);
+  } else {
+    setTimeout(() => reject("Promise2 is resolved"), 4000);
+  }
+});
+const promise3 = new Promise((resolve, reject) => {
+  if (true) {
+    setTimeout(() => resolve("Promise3 is resolved"), 2000);
+  } else {
+    setTimeout(() => reject("Promise3 is resolved"), 4000);
+  }
+});
+const result = Promise.allSettled([promise1, promise2, promise3]).then((data) =>
+  data.forEach((result) => console.log(result))
+);
+*/
